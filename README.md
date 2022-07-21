@@ -74,3 +74,19 @@ Pattern에 일치하는 문자열을 반환
 }
 </code>
 </pre>
+
+# 2022-07-21
+
+### equals() 와 StringUtils.equals()의 차이 
+str.equals(str2); 에서 str 이 null 이면 NullPointerException 예외가 발생
+StringUtils 클래스를 사용하면 StringUtils.equals(str1,str2) 에서 str1 이 null 이어도 예외가 발생하지 않고 null 을 반환한다.
+
+### List 타입의 list가 있을 때
+<pre>
+<code>
+list.stream().filter(o -> StringUtils.equals(Const.SAMPLE, o.getSample()).(Collectors.toList()));
+</code>
+</pre>
+==> list의 sample이 Const.SAMPLE인것만 골라서 필터링 한 뒤에 별도의 List를 생성
+
+Collectors.toList() 말고도 HashSet타입이다 하면 Collectors.toSet()으로 사용
